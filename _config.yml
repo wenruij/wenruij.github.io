@@ -1,7 +1,7 @@
 # Site settings
 title: Jiang Wenrui
 SEOTitle: 学无止境
-header-img: img/post-bg-6.jpeg
+header-img: img/post-bg-3.jpeg
 email: wenruij@gmail.com
 description: "深度学习相关。"
 keyword: "深度学习，个性化推荐，召回，粗排，排序，分布式"
@@ -13,11 +13,11 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-twitter_username:   huxpro
-#facebook_username:  huxpro
+weibo_username:     wenruij
+zhihu_username:     wenruij
+github_username:    wenruij
+twitter_username:   wenruij
+#facebook_username:  wenruij
 #linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -62,7 +62,7 @@ kramdown:
 disqus_username: wenruij
 
 # Netease settings
-netease_comment: false
+netease_comment: true
 
 
 
