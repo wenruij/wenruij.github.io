@@ -16,14 +16,14 @@ PS架构最早由google提出。
 
 其典型的架构图如下所示 *（目前与之对立的为All-Reduce）*
 
-![java-javascript](/img/in-post/ps.png)
+![java-javascript](/img/in-post/ps.png width="50%" height="50%" )
 <small class="img-hint">典型的PS架构</small>
 
 > 参考：[Scaling Distributed Machine Learning with the Parameter Server](http://web.eecs.umich.edu/~mosharaf/Readings/Parameter-Server.pdf)
 
 其典型的算法流程如下所示：
 
-![java-javascript](/img/in-post/distributed_algo.png)
+![java-javascript](/img/in-post/distributed_algo.png width="50%" height="50%" )
 <small class="img-hint">PS架构算法流程</small>
 
 基于PS架构有以下几种策略：
@@ -33,7 +33,7 @@ PS架构最早由google提出。
 
 一个典型的Bounded Delay算法如下所示：
 
-![java-javascript](/img/in-post/eamsgd.png)
+![java-javascript](/img/in-post/eamsgd.png width="50%" height="50%" )
 <small class="img-hint">EAMSGD流程</small>
 
 > 术语：
