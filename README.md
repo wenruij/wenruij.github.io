@@ -1,1 +1,2 @@
-# Blog for Wenrui.J
+[Jiang Wenrui](https://wenruij.github.io)
+================================
