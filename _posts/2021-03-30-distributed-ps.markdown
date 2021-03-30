@@ -49,6 +49,6 @@ PS架构最早由google提出。
 * [SpeeDo](http://ai.deepq.com/speedo/): A deep learning system designed for off-the-shelf hardwares
 
 
-#### 著作权声明
+#### 转载声明
 
 首次发布于 [Jiang Wenrui](http://wenruij.github.io)，转载请保留以上链接
