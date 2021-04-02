@@ -1,0 +1,37 @@
+---
+layout:     post
+title:      "理解TensorFlow 2.x PS架构"
+subtitle:   "PS in TF2"
+date:       2021-04-05
+author:     "Jiang Wenrui"
+header-img: "img/post-bg-rwd.jpg"
+tags:
+    - 深度学习
+    - 分布式
+---
+
+#### Parameter Server
+
+TF2.x 的PS架构中存在三种角色：
+* **Coordinator**
+* **Parameter Server**
+* **Worker**
+
+其基本调度流程如下：
+* Coordinator定义tf.funtion，记录模型的FP，以及distribute dataset fn
+* Server初始化参数，定义Optimizer
+* 训练开始，Coordinator dispatch tf.funtion给worker, worker收到请求后从server读取参数并且 compute_gradient，并返回给Coordinator
+* Coordinator将gradient dispatch给server， server通过apply_gradient更新参数
+
+
+
+
+#### 一些资源
+
+
+* [ParameterServerStrategy](https://www.tensorflow.org/api_docs/python/tf/distribute/experimental/ParameterServerStrategy): An multi-worker tf.distribute strategy with parameter servers in TF2.x
+
+
+#### 转载声明
+
+首次发布于 [Jiang Wenrui](http://wenruij.github.io)，转载请保留以上链接
