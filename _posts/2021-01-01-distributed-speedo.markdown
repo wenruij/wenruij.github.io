@@ -35,7 +35,7 @@ Please cite [SpeeDO](http://learningsys.org/papers/LearningSys_2015_paper_13.pdf
 
 SpeeDO takes advantage of many existing solutions in the open-source community, data flow of SpeeDO:
 
-<img src="/img/speedo/speedo_architecture.png" width="80%" height="80%" />
+<img src="/img/speedo/speedo_architecture.png" width="100%" height="100%" />
 <small class="img-hint">Architecture and data flow of SpeeDO</small>
 
 SpeeDO mainly contains these components:
@@ -211,17 +211,17 @@ To try a cloudera solution for SpeeDO. Please refer [Run SpeeDO on Yarn & HDFS C
 
 The Cifar10 dataset is used to validate all parallel implementations on a CPU cluster with four 8-core instances
 
-<img src="/img/speedo/speedo_psgd_cpu.png" width="80%" height="80%" />
+<img src="/img/speedo/speedo_psgd_cpu.png" width="100%" height="100%" />
 <small class="img-hint">SGD parallel schemes on CPU cluster</small>
 
 Training [GoogleNet](http://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf) on a GPU cluster for different parallel implementations
 
-<img src="/img/speedo/speedo_psgd_gpu.png" width="80%" height="80%" />
+<img src="/img/speedo/speedo_psgd_gpu.png" width="100%" height="100%" />
 <small class="img-hint">SGD parallel schemes on GPU cluster</small>
 
 EASGD achieves the best speedup in our parallel implementations. And parameters of it have great impact for the speedup.
 
-<img src="/img/speedo/speedo_easgd_gpu.png" width="80%" height="80%" />
+<img src="/img/speedo/speedo_easgd_gpu.png" width="100%" height="100%" />
 <small class="img-hint">Parameter Analysis of EASGD on GPU Cluster</small>
 
 
