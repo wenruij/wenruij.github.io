@@ -11,7 +11,7 @@ tags:
     - 召回
 ---
 
-#### 召回概述
+## 召回概述
 
 推荐系统一般分为两部分，召回阶段和排序阶段。召回阶段是从全量数据中挑选出用户可能感兴趣的一部分数据，供后面的排序阶段使用.
 
@@ -22,7 +22,7 @@ tags:
 
 各阶段维度如下所示：
 
-<img src="/img/rec-matching/rec_stage.png" width="90%" height="90%" />
+<img src="/img/rec-matching/rec_stage.png" width="60%" height="60%" />
 <small class="img-hint">workflow detail</small>
 
 > 参考：[Privileged Features Distillation at Taobao Recommendations](https://arxiv.org/abs/1907.05171v2)
@@ -36,7 +36,7 @@ tags:
 <img src="/img/rec-matching/rec_kind.png" width="90%" height="90%" />
 <small class="img-hint">召回分类</small>
 
-#### 几大模型召回
+## 几大模型召回
 
 常见的几大经典模型如下：
 * **YoutubeDNN**
@@ -45,14 +45,14 @@ tags:
 
 首先看看最经典的 YoutubeDNN,其结构如下所示：
 
-<img src="/img/rec-matching/youtubednn_1.png" width="90%" height="90%" />
+<img src="/img/rec-matching/youtubednn_1.png" width="60%" height="60%" />
 <small class="img-hint">Youtube DNN结构</small>
 
 > 参考：[Deep Neural Networks for YouTube Recommendations](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/45530.pdf)
 
 YoutubeDNN是一篇工程实践很佳的论文，其存在很多需要斟酌的点：
 
-<img src="/img/rec-matching/youtubednn_2.png" width="90%" height="90%" />
+<img src="/img/rec-matching/youtubednn_2.png" width="100%" height="100%" />
 <small class="img-hint">Youtube DNN工程实践</small>
 
 然后再看看双塔模型，其结构对比YoutubeDNN有他的优势：
@@ -69,9 +69,9 @@ YoutubeDNN是一篇工程实践很佳的论文，其存在很多需要斟酌的�
 
 > 经典的GCN如：[PinSAGE](https://arxiv.org/pdf/1806.01973.pdf)
 
-#### 统一召回框架–向量化召回
+## 统一召回框架–向量化召回
 
-## NFEP框架
+#### NFEP框架
 召回算法，品类众多而形态迥异，看似很难找出共通点。如今比较流行的召回算法，比如：item2vec、DeepWalk、Youtube的召回算法、Airbnb的召回算法、FM召回、DSSM、双塔模型、百度的孪生网络、阿里的EGES、Pinterest的PinSAGE、腾讯的RALM和GraphTR,但其实都可以被一个统一的算法框架所囊括，即NFEP（Near, Far, Embedding, Pairwie-loss）框架，也成为
 向量化召回的统一框架
 
@@ -113,14 +113,14 @@ YoutubeDNN是一篇工程实践很佳的论文，其存在很多需要斟酌的�
 * **Embedding**：user embedding，采用soft-attention捕捉序列交互，feed embedding: share embedding table with user tower
 * **loss**：Poinwise-loss: binary cross-entropy
 
-## 负样本采集
+#### 负样本采集
 负样本如何采集：
 * 排序其目标是“从用户可能喜欢的当中挑选出用户最喜欢的”，是为了优中选优。与召回相比，排序面对的数据环境，简直就是温室里的花朵。
 * 召回是“是将用户可能喜欢的，和海量对用户根本不靠谱的，分隔开”，所以召回在线上所面对的数据环境，就是鱼龙混杂、良莠不齐。
 
 所以，要求喂入召回模型的样本，既要让模型见过最匹配的，也要让模型见过最不靠谱的，才能让模型达到"开眼界、见世面"的目的，从而在“大是大非”上不犯错误。
 
-## hard negative mining
+#### hard negative mining
 hard negative mining怎么做：
 
 easy negative:属于你能知道一个用户喜欢狗而非猫，但是不知道具体喜欢哪种品种的狗
@@ -137,9 +137,9 @@ easy negative:属于你能知道一个用户喜欢狗而非猫，但是不知道
 如果hard negative不容易实现，还可以采用一种思路，就是用不同难度的negative训练不同难度的模型，再做多模型的融合
 Serving阶段：fasis检索时，将权重乘在user embedding或item embedding一侧，然后将各个模型产出的embedding拼接起来(𝛼为超参)，这种策略参考[EBR:Embedding-based Retrieval in Facebook Search](https://arxiv.org/abs/2006.11632v2)
 
-## 召回Loss
+#### 召回Loss
 再看一下召回中loss的选择：pointwise vs pairwise
-<img src="/img/rec-matching/pairwise.png" width="90%" height="90%" />
+<img src="/img/rec-matching/pairwise.png" width="80%" height="80%" />
 <small class="img-hint">pointwise vs pairwise</small>
 
 它们的区别如下：
@@ -154,7 +154,7 @@ Serving阶段：fasis检索时，将权重乘在user embedding或item embedding�
 * sampled softmax loss
 * margin hinge loss/BPR Loss   
 
-## 召回离线评估
+#### 召回离线评估
 最后是召回离线评估问题，几种常见策略为：
 1. 拿Top K召回结果与用户实际点击做交集，然后计算precision/recall
 2. 计算“用户实际点击”在“召回结果”中的平均位置
@@ -162,12 +162,12 @@ Serving阶段：fasis检索时，将权重乘在user embedding或item embedding�
 但是这些策略置信度有一定问题：因为召回的结果未被用户点击，未必说明用户不喜欢
 
 
-#### 参考资源
+## 参考资源
 
 
 * [石塔西](https://www.zhihu.com/people/si-ta-xi): 石塔西的博文
 
 
-#### 转载声明
+## 转载声明
 
 首次发布于 [Jiang Wenrui](http://wenruij.github.io)，转载请保留以上链接
