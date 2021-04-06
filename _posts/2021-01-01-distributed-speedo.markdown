@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "分布式训练框架-SpeeDo"
-subtitle:   "PS for HugeCTR"
+subtitle:   "SpeeDO for Distributed Learning"
 date:       2021-01-01
 author:     "Jiang Wenrui"
 header-img: "img/post-bg-rwd.jpg"
@@ -35,7 +35,8 @@ Please cite [SpeeDO](http://learningsys.org/papers/LearningSys_2015_paper_13.pdf
 
 SpeeDO takes advantage of many existing solutions in the open-source community, data flow of SpeeDO:
 
-![Architecture and data flow of SpeeDO](https://raw.githubusercontent.com/obdg/speedo/master/data/figures/speedo_architecture.png "Architecture and data flow of SpeeDO")
+<img src="/img/speedo/speedo_architecture.png" width="80%" height="80%" />
+<small class="img-hint">Architecture and data flow of SpeeDO</small>
 
 SpeeDO mainly contains these components:
 
@@ -210,15 +211,19 @@ To try a cloudera solution for SpeeDO. Please refer [Run SpeeDO on Yarn & HDFS C
 
 The Cifar10 dataset is used to validate all parallel implementations on a CPU cluster with four 8-core instances
 
-![SGD parallel schemes on CPU cluster](https://raw.githubusercontent.com/obdg/speedo/master/data/figures/speedo_psgd_cpu.png "SGD parallel schemes on CPU cluster")
+<img src="/img/speedo/speedo_psgd_cpu.png" width="80%" height="80%" />
+<small class="img-hint">SGD parallel schemes on CPU cluster</small>
 
 Training [GoogleNet](http://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf) on a GPU cluster for different parallel implementations
 
-![SGD parallel schemes on GPU cluster](https://raw.githubusercontent.com/obdg/speedo/master/data/figures/speedo_psgd_gpu.png "SGD parallel schemes on GPU cluster")
+<img src="/img/speedo/speedo_psgd_gpu.png" width="80%" height="80%" />
+<small class="img-hint">SGD parallel schemes on GPU cluster</small>
 
 EASGD achieves the best speedup in our parallel implementations. And parameters of it have great impact for the speedup.
 
-![Parameter Analysis of EASGD on GPU Cluster](https://raw.githubusercontent.com/obdg/speedo/master/data/figures/speedo_easgd_gpu.png "Parameter Analysis of EASGD on GPU Cluster")
+<img src="/img/speedo/speedo_easgd_gpu.png" width="80%" height="80%" />
+<small class="img-hint">Parameter Analysis of EASGD on GPU Cluster</small>
+
 
 ## Authors
 
