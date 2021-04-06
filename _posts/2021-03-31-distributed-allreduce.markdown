@@ -2,7 +2,7 @@
 layout:     post
 title:      "分布式架构基础之All-Reduce"
 subtitle:   "All-Reduce Understanding"
-date:       2021-03-30
+date:       2021-03-31
 author:     "Jiang Wenrui"
 header-img: "img/post-bg-rwd.jpg"
 tags:
