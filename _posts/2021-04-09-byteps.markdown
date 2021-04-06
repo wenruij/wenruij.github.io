@@ -2,7 +2,7 @@
 layout:     post
 title:      "理解BytePS架构"
 subtitle:   "BytePS Learning and Exploration"
-date:       2021-04-05
+date:       2021-04-09
 author:     "Jiang Wenrui"
 header-img: "img/post-bg-rwd.jpg"
 tags:
