@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "分布式训练框架-SpeeDo"
+title:      "NIPS 2015 Workshop论文：分布式训练框架-SpeeDo"
 subtitle:   "SpeeDO for Distributed Learning"
 date:       2021-01-01
 author:     "Jiang Wenrui"
@@ -10,7 +10,7 @@ tags:
     - 分布式
 ---
 
-# SpeeDo - Parallelizing Stochastic Gradient Descent for Deep Convolutional Neural Network
+# NIPS 2015 Workshop: SpeeDo - Parallelizing Stochastic Gradient Descent for Deep Convolutional Neural Network
 
 ## Introduction
 
