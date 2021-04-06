@@ -1,7 +1,7 @@
 # Site settings
 title: Jiang Wenrui
 SEOTitle: Deep Learning
-header-img: img/about-bg.jpeg
+header-img: img/about-bg.jpg
 email: wenruij@gmail.com
 description: "深度学习相关。"
 keyword: "深度学习，个性化推荐，召回，粗排，排序，分布式"

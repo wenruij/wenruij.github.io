@@ -2,7 +2,7 @@
 layout:     post
 title:      "个性化推荐-召回概述"
 subtitle:   "Matching Stage in Recommendation"
-date:       2021-04-05
+date:       2021-04-09
 author:     "Jiang Wenrui"
 header-img: "img/about-bg.jpg"
 tags:
@@ -33,7 +33,7 @@ tags:
 * 其他召回
 
 如下图所示：
-<img src="/img/rec-matching/rec_kind.png" width="90%" height="90%" />
+<img src="/img/rec-matching/rec_kind.png" width="80%" height="80%" />
 <small class="img-hint">召回分类</small>
 
 ## 几大模型召回
@@ -45,7 +45,7 @@ tags:
 
 首先看看最经典的 YoutubeDNN,其结构如下所示：
 
-<img src="/img/rec-matching/youtubednn_1.png" width="60%" height="60%" />
+<img src="/img/rec-matching/youtubednn_1.png" width="69%" height="69%" />
 <small class="img-hint">Youtube DNN结构</small>
 
 > 参考：[Deep Neural Networks for YouTube Recommendations](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/45530.pdf)
@@ -64,7 +64,7 @@ YoutubeDNN是一篇工程实践很佳的论文，其存在很多需要斟酌的�
 
 
 最后，是近些年兴起的GCN，除了使用side info, 最终的embedding还能融合社交网络的拓扑结构：
-<img src="/img/rec-matching/gcn.png" width="90%" height="90%" />
+<img src="/img/rec-matching/gcn.png" width="80%" height="80%" />
 <small class="img-hint">GCN</small>
 
 > 经典的GCN如：[PinSAGE](https://arxiv.org/pdf/1806.01973.pdf)
