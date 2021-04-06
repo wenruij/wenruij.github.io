@@ -10,7 +10,7 @@ tags:
     - 分布式
 ---
 
-# NIPS 2015 Workshop: SpeeDo - Parallelizing Stochastic Gradient Descent for Deep Convolutional Neural Network
+# NIPS 2015 Workshop Paper: SpeeDo - Parallelizing Stochastic Gradient Descent for Deep Convolutional Neural Network
 
 ## Introduction
 
