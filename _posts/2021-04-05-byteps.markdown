@@ -1,0 +1,39 @@
+---
+layout:     post
+title:      "理解BytePS架构"
+subtitle:   "BytePS Learning and Exploration"
+date:       2021-04-05
+author:     "Jiang Wenrui"
+header-img: "img/post-bg-rwd.jpg"
+tags:
+    - 深度学习
+    - 分布式
+---
+
+#### BytePS 初探
+
+BytePS是一种对PS架构 和 All-reduce组合封装的分布式框架，主要采用途径为：
+* [PSLite Push-Pull](https://github.com/dmlc/ps-lite): A light and efficient implementation of the parameter server framework
+* [NCCL All-Reduce](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/operations.html#reducescatter): NCCL ReduceScatter and AllGather
+
+其基础调度流程如下：
+* **Computation**: Each GPU performs computation (forward/backward propagation), which is irrelevant to BytePS;
+* **Local Reduce(NCCl ReduceScatter)**: Multiple GPUs on the same machine reduces the gradients;
+* **Push**: The workers push the aggregated gradients to the servers;
+* **Global Reduce**: Once the servers receive the gradients from different workers, it aggregates the gradients;
+* **Pull**: The workers pull the aggregated gradients from the servers;
+* **Local Broadcast(NCCl AllGather)**: The workers broadcasts the updated gradients to local GPUs;
+* Goto next iteration and repeat from step 1.
+
+
+
+
+#### 参考资源
+
+* [Byteps](https://github.com/bytedance/byteps): BytePS Official
+* [新型分布式DNN训练架构-BytePS](https://coladrill.github.io/2020/12/19/%E6%96%B0%E5%9E%8B%E5%88%86%E5%B8%83%E5%BC%8FDNN%E8%AE%AD%E7%BB%83%E6%9E%B6%E6%9E%84-BytePS/)
+
+
+#### 转载声明
+
+首次发布于 [Jiang Wenrui](http://wenruij.github.io)，转载请保留以上链接

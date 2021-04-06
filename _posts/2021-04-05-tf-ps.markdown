@@ -10,7 +10,7 @@ tags:
     - 分布式
 ---
 
-#### Parameter Server
+#### PS in TF2
 
 TF2.x 的PS架构中存在三种角色：
 * **Coordinator**
