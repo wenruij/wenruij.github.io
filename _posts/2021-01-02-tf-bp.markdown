@@ -1,0 +1,54 @@
+---
+layout:     post
+title:      "理解深度学习BP"
+subtitle:   "Backpropagation in DL"
+date:       2021-01-02
+author:     "Jiang Wenrui"
+header-img: "img/post-bg-rwd.jpg"
+tags:
+    - 深度学习
+---
+
+## 理解 BP
+
+BP的链式传播比较好理解
+
+这里主要说核心总结，主要有三种形态：
+* **Add Gate**
+* **Multiply Gate**
+* **Pooling Gate**
+
+<img src="/img/in-post/dl_bp.png" width="80%" height="80%" />
+<small class="img-hint">典型的PS架构</small>
+
+#### Add Gate
+
+The add gate always takes the gradient on its output and distributes it equally to all of its inputs, regardless of what their values were during the forward pass. This follows from the fact that the local gradient for the add operation is simply +1.0, so the gradients on all inputs will exactly equal the gradients on the output because it will be multiplied by x1.0 (and remain unchanged). In the example circuit above, note that the + gate routed the gradient of 2.00 to both of its inputs, equally and unchanged
+
+#### Multiply Gate
+
+The multiply gate is a little less easy to interpret. Its local gradients are the input values (except switched), and this is multiplied by the gradient on its output during the chain rule. In the example above, the gradient on x is -8.00, which is -4.00 x 2.00
+
+#### Pooling Gate
+
+The pooing gate, like max gate, routes the gradient. Unlike the add gate which distributed the gradient unchanged to all its inputs, the max gate distributes the gradient (unchanged) to exactly one of its inputs (the input that had the highest value during the forward pass). This is because the local gradient for a max gate is 1.0 for the highest value, and 0.0 for all other values. In the example circuit above, the max operation routed the gradient of 2.00 to the z variable, which had a higher value than w, and the gradient on w remains zero.
+
+#### 一些特殊情况
+tf.nn.embedding_lookup如何做BP:
+Embedding matrix lookup is mathematically equivalent to dot product with the one-hot encoded matrix (see this question), which is a smooth linear operation.
+
+For example, here's a lookup at the index 3:
+
+
+
+## 参考资源
+
+* [Colah's Blog](http://colah.github.io/posts/2015-08-Backprop/): Calculus on Computational Graphs: Backpropagation
+* [CS231n](https://cs231n.github.io/optimization-2/): Understanding of Backpropagation
+* [通俗理解神经网络BP传播算法](https://zhuanlan.zhihu.com/p/24801814)
+* [Is tensorflow embedding_lookup differentiable?](https://stackoverflow.com/questions/48166721/is-tensorflow-embedding-lookup-differentiable)
+
+
+## 转载声明
+
+首次发布于 [Jiang Wenrui](http://wenruij.github.io)，转载请保留以上链接
