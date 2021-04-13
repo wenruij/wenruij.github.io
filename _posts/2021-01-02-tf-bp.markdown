@@ -19,7 +19,7 @@ BP的链式传播比较好理解
 * **Pooling Gate**
 
 <img src="/img/in-post/dl_bp.png" width="80%" height="80%" />
-<small class="img-hint">典型的PS架构</small>
+<small class="img-hint">Backpropagation</small>
 
 #### Add Gate
 
