@@ -28,6 +28,7 @@ BytePS是一种对PS架构 和 All-reduce组合封装的分布式框架，主要
 #### BytePS 各类对象
 LoopFunction集合： std::vector<LoopFunction>
 > typedef void (*LoopFunction)(): LoopFunction是一个通用函数指针，指向一个不带参数、返回值为空的函数
+
 * **PullLoop**
 * **PcieReduceLoop**
 * **PushLoop**
