@@ -39,7 +39,7 @@ Embedding matrix lookup is mathematically equivalent to dot product with the one
 
 For example, here's a lookup at the index 3:
 
-<img src="/img/in-post/dl_emb.png" width="80%" height="80%" />
+<img src="/img/in-post/bp_emb.png" width="80%" height="80%" />
 <small class="img-hint">Embedding_Lookup</small>
 
 ## 参考资源
