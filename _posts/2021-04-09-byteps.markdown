@@ -10,7 +10,7 @@ tags:
     - 分布式
 ---
 
-#### BytePS 初探
+## BytePS 架构
 
 BytePS是一种对PS架构 和 All-reduce组合封装的分布式框架，主要采用途径为：
 * [PSLite Push-Pull](https://github.com/dmlc/ps-lite): A light and efficient implementation of the parameter server framework
@@ -24,6 +24,8 @@ BytePS是一种对PS架构 和 All-reduce组合封装的分布式框架，主要
 * **Pull**: The workers pull the aggregated gradients from the servers;
 * **Local Broadcast(NCCl AllGather)**: The workers broadcasts the updated gradients to local GPUs;
 * Goto next iteration and repeat from step 1.
+
+## BytePS 探索
 
 #### BytePS 各类对象
 LoopFunction集合： std::vector<LoopFunction>
@@ -103,14 +105,18 @@ BytePSPushPullOp::StartTask分析：
 4. operation.cc -> EnqueueTensor
 > 1. call scheduled_queue.cc -> addTask(TensorTableEntry)
 
+#### BytePS 数据承载
+数据封装于 common.h -> struct BytePSContext 中
+
+#### BytePS LoopFunc多线程同步 
 
 
-#### 参考资源
+## 参考资源
 
 * [Byteps](https://github.com/bytedance/byteps): BytePS Official
 * [新型分布式DNN训练架构-BytePS](https://coladrill.github.io/2020/12/19/%E6%96%B0%E5%9E%8B%E5%88%86%E5%B8%83%E5%BC%8FDNN%E8%AE%AD%E7%BB%83%E6%9E%B6%E6%9E%84-BytePS/)
 
 
-#### 转载声明
+## 转载声明
 
 首次发布于 [Jiang Wenrui](http://wenruij.github.io)，转载请保留以上链接
