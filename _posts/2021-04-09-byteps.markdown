@@ -116,7 +116,7 @@ BytePSPushPullOp::StartTask分析：
 数据封装于 common.h -> struct BytePSContext 中
 
 #### BytePS LoopFunction多线程同步 
-训练开启后，StartTask首先 call common::InitTensor -> ps->Wait(ps->ZPush) 开启非阻塞式同步等待
+训练开启后，StartTask首先 call common::InitTensor call ps->Wait(ps->ZPush) 开启非阻塞式同步等待
 
 然后创建queue_list：std::vector<QueueType>，顺序如下
 > * COORDINATE_REDUCE/REDUCE
