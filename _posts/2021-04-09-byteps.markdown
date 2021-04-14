@@ -55,7 +55,7 @@ QueueType集合：事件类型枚举 (共12种)
 * **BROADCAST**
 
 几个常见的对象：
-* queue_list: std::vector<QueueType>
+* queue_list: std::vector(QueueType)
 * TensorTableEntry: 即一个task, 里面封装着queue_list
 * BytePSScheduledQueue:  里面封装着 std::vector<std::shared_ptr<TensorTableEntry>> _sq，同时一个BytePSScheduledQueue和一个QueueType一一对应
 
@@ -74,7 +74,7 @@ QueueType集合：事件类型枚举 (共12种)
 LoopFunction核心：
 > * 定义在core_loops.cc
 > * 根据QueueType call BytePSGlobal::GetScheduledQueue 获取 BytePSScheduledQueue
-> * call scheduled_queue.cc -> BytePSScheduledQueue::getTask() 获取该QueueType对应的BytePSScheduledQueue中的task, task是一个std::shared_ptr<TensorTableEntry>
+> * call scheduled_queue.cc -> BytePSScheduledQueue::getTask() 获取该QueueType对应的BytePSScheduledQueue中的task, task是一个std::shared_ptr(TensorTableEntry)
 > * call core_loops.cc -> FinishOrProceed(task),FinishOrProceed做了两件事
 
 1. 清除queue_list头部的QueueType： queue_list.erase(queue_list.begin())
