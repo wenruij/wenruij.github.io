@@ -40,7 +40,7 @@ LoopFunction集合： std::vector<LoopFunction>
 * **CoordinateBroadcastLoop**
 
 
-QueueType集合：
+QueueType集合：事件类型枚举 (共12种)
 * **COORDINATE_REDUCE**
 * **REDUCE**
 * **COPYD2H**
@@ -54,6 +54,10 @@ QueueType集合：
 * **COORDINATE_BROADCAST**
 * **BROADCAST**
 
+几个常见的对象：
+* queue_list: std::vector<QueueType>
+* TensorTableEntry: 即一个task, 里面封装着queue_list
+* BytePSScheduledQueue:  里面封装着 std::vector<std::shared_ptr<TensorTableEntry>> _sq，同时一个BytePSScheduledQueue和一个QueueType一一对应
 
 
 #### BytePS 流程
@@ -61,7 +65,7 @@ QueueType集合：
 1. BytePSBasics.init
 > 1. call operation.cc -> byteps::common::byteps_lazy_init
 2. byteps::common::byteps_lazy_init
-> 1. call BytePSGlobal::Init() -> BytePSGlobal::CreateScheduledQueue(QueueType)
+> 1. call BytePSGlobal::Init() -> BytePSGlobal::CreateScheduledQueue(QueueType)，因为有12种QueueType，会创建12种BytePSScheduledQueue
 > 2. 创建 LoopFunction 队列
 > 3. call global.cc -> BytePSGlobal::Start
 3. global.cc -> BytePSGlobal::Start
@@ -70,8 +74,11 @@ QueueType集合：
 LoopFunction核心：
 > * 定义在core_loops.cc
 > * 根据QueueType call BytePSGlobal::GetScheduledQueue 获取 BytePSScheduledQueue
-> * call scheduled_queue.cc -> BytePSScheduledQueue::getTask() task是一个std::shared_ptr<TensorTableEntry>
-> * call core_loops.cc -> FinishOrProceed(task)
+> * call scheduled_queue.cc -> BytePSScheduledQueue::getTask() 获取该QueueType对应的BytePSScheduledQueue中的task, task是一个std::shared_ptr<TensorTableEntry>
+> * call core_loops.cc -> FinishOrProceed(task),FinishOrProceed做了两件事
+
+1. 清除queue_list头部的QueueType： queue_list.erase(queue_list.begin())
+2. 根据此时queue_list begin的QueueType get 对应BytePSScheduledQueue，然后将task封装入这个BytePSScheduledQueue
 
 分布式训练循环：
 1. Worker: compute gradients
@@ -108,8 +115,29 @@ BytePSPushPullOp::StartTask分析：
 #### BytePS 数据承载
 数据封装于 common.h -> struct BytePSContext 中
 
-#### BytePS LoopFunc多线程同步 
+#### BytePS LoopFunction多线程同步 
+训练开启后，StartTask首先创建queue_list：std::vector<QueueType>，顺序如下
+> * COORDINATE_REDUCE/REDUCE
+> * COPYD2H
+> * PCIE_REDUCE
+> * COMPRESS
+> * PUSH
+> * PULL
+> * DECOMPRESS
+> * COPYH2D
+> * COORDINATE_BROADCAST/BROADCAST
 
+StartTask call operation.cc -> EnqueueTensor, EnqueueTensor做几件事：
+> 1. 创建task
+> 2. 将queue_list封装入task: TensorTableEntry
+> 3. add_task: 根据queue_list begin的QueueType get 对应BytePSScheduledQueue，然后将task封装入这个BytePSScheduledQueue
+
+然后LoopFunction一直监听自己对应的BytePSScheduledQueue中是否有task，有就开始执行(也就是说LoopFunction的执行是被add_task触发)， 其循环执行以下：
+1. get_task: 消费task
+>  根据queue_list begin的QueueType get 对应BytePSScheduledQueue，并消费这个BytePSScheduledQueue中的task(数据就封装于task中)
+2. run_task
+3. add_task: 添加task(也就是queue_list中下一个事件task)
+>  call FinishOrProceed(task)清除queue_list的begin，然后根据此时queue_list begin的QueueType get 对应BytePSScheduledQueue，并把task封装于其中
 
 ## 参考资源
 
