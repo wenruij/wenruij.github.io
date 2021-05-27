@@ -143,12 +143,12 @@ Student Model的Loss如下：
 
 ## 参考资源
 
-* [深入浅出优势特征蒸馏在淘宝推荐中的应用](https://zhuanlan.zhihu.com/p/155935427): KDD 2020
+* [KDD 2020: 深入浅出优势特征蒸馏在淘宝推荐中的应用](https://zhuanlan.zhihu.com/p/155935427)
 * [阿里粗排技术体系与最新进展](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247530926&idx=1&sn=43527db30cd5d0584a8f112426d8720f&chksm=fbd7cbc2cca042d4c0620396c3acc6752c8b6a9f5c7980a9f7ac44a72c040e0d0763ced31606&mpshare=1&scene=1&srcid=0221yHwr0DiJPtOy1lRitBoX&sharer_sharetime=1615852953502&sharer_shareid=89f69aa470e51c1cf885957926ef3e00&version=3.1.6.90174&platform=mac#rd)
 * [爱奇艺短视频推荐：粗排篇](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247533568&idx=1&sn=2b8c694ff43bb451ff1e70b49a7bd97b&chksm=fbd7f66ccca07f7a29d0eb0389cd4231707d6588219af0fff94b22e43d8106161172aff9f16c&mpshare=1&scene=1&srcid=0227rNIffc1uT7Z3QXoL2TrR&sharer_sharetime=1615852936703&sharer_shareid=89f69aa470e51c1cf885957926ef3e00&version=3.1.6.90174&platform=mac#rd)
 * [阿里定向广告最新突破：面向下一代的粗排排序系统COLD](https://zhuanlan.zhihu.com/p/186320100)
 * [Privileged Features Distillation at Taobao Recommendations](https://arxiv.org/abs/1907.05171v2)
-* [COLD](https://arxiv.org/pdf/2007.16122.pdf)
+* [COLD: Towards the Next Generation of Pre-Ranking System](https://arxiv.org/pdf/2007.16122.pdf)
 
 
 ## 转载声明
