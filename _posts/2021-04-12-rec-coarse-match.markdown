@@ -85,7 +85,7 @@ tags:
 * 内积计算的算力消耗小
 
 另外，粗排阶段的模型方案演化如下图所示：
-<img src="/img/pre_ranking/pre_ranking.png" width="60%" height="60%" />
+<img src="/img/pre_ranking/pre_ranking.png" width="90%" height="90%" />
 <small class="img-hint">粗排模型演化</small>
 
 > 参考：[COLD](https://arxiv.org/pdf/2007.16122.pdf)
@@ -110,13 +110,13 @@ tags:
 1. 优先训练好Teacher Model
 2. 用训练好的Teacher Model指导Student Model的训练
 Student Model的Loss如下：
-<img src="/img/pre_ranking/loss1.png" width="60%" height="60%" />
+<img src="/img/pre_ranking/loss1.png" width="80%" height="80%" />
 
 联合训练：
 1. 同步更新Teacher Model和Student Model中的参数
 
 联合模型的Loss如下：
-<img src="/img/pre_ranking/loss2.png" width="60%" height="60%" />
+<img src="/img/pre_ranking/loss2.png" width="80%" height="80%" />
 
 联合训练的一个风险：
 这种方法可能带来训练的不稳定，尤其是训练初期，Teacher Model自己还没有学好，就来指导Student Model，是有可能导致训练偏离正常的。因此λ参数就很重要，初期可以设为0
@@ -124,9 +124,9 @@ Student Model的Loss如下：
 #### 常见粗排蒸馏方案
 常见的粗排蒸馏方案是： 精排到粗排的蒸馏
 比如：
-<img src="/img/pre_ranking/train.png" width="60%" height="60%" />
+<img src="/img/pre_ranking/train.png" width="75%" height="75%" />
 
-有如下特征：
+有如下特性：
 1. 补足双塔模型在结构和特征上的缺陷
 2. 目标对齐
 3. 采用分离训练
@@ -143,7 +143,7 @@ Student Model的Loss如下：
 
 ## 参考资源
 
-* [KDD 2020 | 深入浅出优势特征蒸馏在淘宝推荐中的应用](https://zhuanlan.zhihu.com/p/155935427)
+* [深入浅出优势特征蒸馏在淘宝推荐中的应用](https://zhuanlan.zhihu.com/p/155935427): KDD 2020
 * [阿里粗排技术体系与最新进展](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247530926&idx=1&sn=43527db30cd5d0584a8f112426d8720f&chksm=fbd7cbc2cca042d4c0620396c3acc6752c8b6a9f5c7980a9f7ac44a72c040e0d0763ced31606&mpshare=1&scene=1&srcid=0221yHwr0DiJPtOy1lRitBoX&sharer_sharetime=1615852953502&sharer_shareid=89f69aa470e51c1cf885957926ef3e00&version=3.1.6.90174&platform=mac#rd)
 * [爱奇艺短视频推荐：粗排篇](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247533568&idx=1&sn=2b8c694ff43bb451ff1e70b49a7bd97b&chksm=fbd7f66ccca07f7a29d0eb0389cd4231707d6588219af0fff94b22e43d8106161172aff9f16c&mpshare=1&scene=1&srcid=0227rNIffc1uT7Z3QXoL2TrR&sharer_sharetime=1615852936703&sharer_shareid=89f69aa470e51c1cf885957926ef3e00&version=3.1.6.90174&platform=mac#rd)
 * [阿里定向广告最新突破：面向下一代的粗排排序系统COLD](https://zhuanlan.zhihu.com/p/186320100)
