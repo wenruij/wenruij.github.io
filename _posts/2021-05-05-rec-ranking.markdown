@@ -47,7 +47,7 @@ Sequence Learning，也就是序建模，常见的策略有：
 ## CTR Interaction Learning
 
 Interaction Learning的主要手段是 FM 结构，本篇要介绍的FM主要包含以下几大模型
-<img src="/img/rec-ranking/fm.png" width="60%" height="60%" />
+<img src="/img/rec-ranking/fm.png" width="100%" height="100%" />
 
 ## 参考资源
 
