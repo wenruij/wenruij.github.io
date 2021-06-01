@@ -13,16 +13,41 @@ tags:
 
 ## 排序概述
 
-推荐系统一般分为两部分，召回阶段和排序阶段。召回阶段是从全量数据中挑选出用户可能感兴趣的一部分数据，供后面的排序阶段使用.
+推荐系统一般分为两部分，召回阶段和排序阶段。而排序常用的点击率预估（a.k.a. CTR模型）在搜索、推荐和广告等互联网应用中扮演了至关重要的角色.
+本文对排序的描述主要集中于CTR模型的阐述
 
 ## CTR结构划分
 
-推荐系统一般分为两部分，召回阶段和排序阶段。召回阶段是从全量数据中挑选出用户可能感兴趣的一部分数据，供后面的排序阶段使用.
+CTR模型的整体结构可以分为3层：
+1. **Embedding Layers** :这一层的作用是将类别型特征(包括数值型特征一般离散化为类别型特征)对应的高维空间映射到Embedding向量的低维空间；
+2. **Hidden Layers** :这一层的作用是提供高度非线性的拟合能力；
+3. **Output Layers** :这一层的作用是对任务的具体目标进行针对性表达。
+
+不同层的优化路径有显著差异，整体分类框图可以参考：
+<img src="/img/rec-ranking/ctr01.png" width="90%" height="90%" />
+
+常见的优化比如：
+1. **Hidden Layers特点** :传统全连接层MLP虽然有万能的拟合能力，但研究表明它的业务针对性较弱，通常需要有显式的结构设计才能让模型的学习更加聚焦。
+2. **Embedding Layers特点** :大规模数据场景下建模的重中之重，该层参数规模几乎决定了整体存储规模，Embedding表征学习能力决定了模型预估能力的基本盘。
+
 
 ## CTR几大优化方向
+如果从Hidden Layers展开，CTR可以从以下几个方面展开优化：
+* Interaction Learning
+* Sequence Learning
+* Graph Learning
+
+Sequence Learning，也就是序建模，常见的策略有：
+1. Sum/Mean Pooling
+2. RN
+3. Attention
+
+接下来重点关注Interaction Learning
 
 ## CTR Interaction Learning
 
+Interaction Learning的主要手段是 FM 结构，本篇要介绍的FM主要包含以下几大模型
+<img src="/img/rec-ranking/fm.png" width="60%" height="60%" />
 
 ## 参考资源
 
