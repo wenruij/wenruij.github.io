@@ -133,13 +133,25 @@ Student Model的Loss如下：
 4. 让粗排反向学习精排的打分结果
 
 ## 其他粗排方案
-其他粗排方案如：级联模型，COLD
+其他粗排方案:
+
+* 级联模型
+* COLD
+* 粗排模型从RF升级为IF结构
 
 #### 级联模型
 具体可参考：[爱奇艺短视频推荐：粗排篇](https://mp.weixin.qq.com/s?__biz=MzU1NTMyOTI4Mw==&mid=2247533568&idx=1&sn=2b8c694ff43bb451ff1e70b49a7bd97b&chksm=fbd7f66ccca07f7a29d0eb0389cd4231707d6588219af0fff94b22e43d8106161172aff9f16c&mpshare=1&scene=1&srcid=0227rNIffc1uT7Z3QXoL2TrR&sharer_sharetime=1615852936703&sharer_shareid=89f69aa470e51c1cf885957926ef3e00&version=3.1.6.90174&platform=mac#rd)
 
 #### 下一代粗排COLD
 具体可参考：[阿里定向广告最新突破：面向下一代的粗排排序系统COLD](https://zhuanlan.zhihu.com/p/186320100)
+
+#### 粗排模型从RF升级为IF结构
+传统的粗排模型采用“Representation-focused architecture”（简称RF）的向量点积模型，它的优势在于能够高性能地处理较大规模候选集合。
+但是，它的预估能力相较精排模型的“Interaction-focused architecture”（简称IF）有很大的差距，即使采用精排对粗排的知识蒸馏模式，
+依然对粗排模型提升能力有限。我们认为交互特征和交互网络的缺失，决定了向量点积模型的精度上限较低。这种模式过于关注计算性能的优化，
+而忽略了算法效果对于业务的影响，是否可以调节两者失衡的状态，通过牺牲不多的计算性能从而可以较大地提升算法效果？
+
+阿里妈妈 粗排模型升级为“IF"结构是一种新的尝试，可参考[SIGIR 2021 | FSCD-PreRank：面向效率和效果更加均衡的交互式粗排模型](https://mp.weixin.qq.com/s/4YKf-W43TVAkIutVeD5B5w)
 
 ## 参考资源
 
@@ -149,7 +161,7 @@ Student Model的Loss如下：
 * [阿里定向广告最新突破：面向下一代的粗排排序系统COLD](https://zhuanlan.zhihu.com/p/186320100)
 * [Privileged Features Distillation at Taobao Recommendations](https://arxiv.org/abs/1907.05171v2)
 * [COLD: Towards the Next Generation of Pre-Ranking System](https://arxiv.org/pdf/2007.16122.pdf)
-
+* [SIGIR 2021 | FSCD-PreRank：面向效率和效果更加均衡的交互式粗排模型](https://mp.weixin.qq.com/s/4YKf-W43TVAkIutVeD5B5w)
 
 ## 转载声明
 
