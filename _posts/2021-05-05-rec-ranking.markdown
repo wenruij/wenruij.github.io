@@ -37,10 +37,19 @@ CTR模型的整体结构可以分为3层：
 * Sequence Learning
 * Graph Learning
 
-Sequence Learning，也就是序建模，常见的策略有：
+Sequence Learning，也就是序建模，是User Behavior Modeling的一种常见策略，常见的方法有：
 1. Sum/Mean Pooling
 2. RN
 3. Attention
+
+Graph Learning，也就是应用于推荐系统的GNN模型，即图建模，对比序列建模，有如下优势：
+序建模
+* 聚焦在用户自身的历史行为（私域行为）,行为越丰富效果越好
+* 能够充分挖掘其个性和差异化特点
+
+图建模
+* 利用群体行为互联的空间拓扑结构信息（公域行为），对于低活用户和搜索新需求非常友好
+* 借助群体智慧充分挖掘行为背后的共性和可迁移性特点
 
 接下来重点关注Interaction Learning
 
@@ -48,6 +57,31 @@ Sequence Learning，也就是序建模，常见的策略有：
 
 Interaction Learning的主要手段是 FM 结构，本篇要介绍的FM主要包含以下几大模型
 <img src="/img/rec-ranking/fm.png" width="100%" height="100%" />
+
+最终实现效果突出的主要参考：[NFM](https://arxiv.org/abs/1708.05027)和[FwFM](https://arxiv.org/abs/1806.03514v2)，
+相比原论文，实现时主要有两点差异：
+1. tf.sparse_tensor_dense_matmul替代tf.nn.embedding_lookup
+2. 加入域的概念
+
+比如xNFM vs NFM，首先看NFM:
+1. 没有域的概念，所有特征需要先转成category类型，然后为所有特征分配全局唯一的global_id，然后去做embedding lookup查表
+2. 采用embedding_lookup，生成embedding后，维度是三维：[batch_size, num_feats, embedding_size]
+3. 调用bi_interaction公式
+
+而xNFM
+1. 引入域的概念，每一个域对应一个SparseTensor
+2. 每一个SparseTensor(域)经由tf.sparse_tensor_dense_matmul处理后得到一个DenseTensor, 然后将多个域的DenseTensor Concat成一个DenseTensor, 生成embedding后，维度是二维：[batch_size, total_embedding_size]
+3. 对于这一个DenseTensor，调用FM的interaction公式
+
+NFwFM vs FwFM类似上述做法，首先是FwFM：
+1. 没有域的概念，所有特征需要先转成category类型，然后为所有特征分配全局唯一的global_id，然后去做embedding lookup查表
+2. 采用embedding_lookup，生成embedding后，维度是三维：[batch_size, num_feats, embedding_size]
+3. 调用bi_interaction公式对每两个特征做交叉,只是Feat_i 与 Feat_j做 交叉时多一个权重 r_ij
+
+而NFwFM
+1. 引入域的概念，每一个域对应一个SparseTensor
+2. 每一个SparseTensor(域)经由tf.sparse_tensor_dense_matmul处理后得到一个DenseTensor，生成embedding后，维度是三维：[batch_size, num_fields, embedding_size]
+3. 调用bi_interaction公式对每两个域做交叉,只是Field_i 与 Field_j做 交叉时多一个权重 r_ij
 
 ## 参考资源
 
