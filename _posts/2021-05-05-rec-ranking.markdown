@@ -63,6 +63,7 @@ Interaction Learning的主要手段是 FM 结构，本篇要介绍的FM主要包
 1. tf.sparse_tensor_dense_matmul替代tf.nn.embedding_lookup
 2. 加入域的概念
 
+#### xNFM
 比如xNFM vs NFM，首先看NFM:
 1. 没有域的概念，所有特征需要先转成category类型，然后为所有特征分配全局唯一的global_id，然后去做embedding lookup查表
 2. 采用embedding_lookup，生成embedding后，维度是三维：[batch_size, num_feats, embedding_size]
@@ -73,6 +74,7 @@ Interaction Learning的主要手段是 FM 结构，本篇要介绍的FM主要包
 2. 每一个SparseTensor(域)经由tf.sparse_tensor_dense_matmul处理后得到一个DenseTensor, 然后将多个域的DenseTensor Concat成一个DenseTensor, 生成embedding后，维度是二维：[batch_size, total_embedding_size]
 3. 对于这一个DenseTensor，调用FM的interaction公式
 
+#### NFwFM
 NFwFM vs FwFM类似上述做法，首先是FwFM：
 1. 没有域的概念，所有特征需要先转成category类型，然后为所有特征分配全局唯一的global_id，然后去做embedding lookup查表
 2. 采用embedding_lookup，生成embedding后，维度是三维：[batch_size, num_feats, embedding_size]
