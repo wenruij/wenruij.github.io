@@ -26,6 +26,11 @@ tags:
 
 * [Debiasing比赛冠军技术方案及在美团的实践](https://tech.meituan.com/2020/08/20/kdd-cup-debiasing-practice.html)
 * [阿里CVR预估模型之ESMM](https://zhuanlan.zhihu.com/p/57481330)
+* [负样本为王](https://zhuanlan.zhihu.com/p/165064102)
+* [阿里ESAM:用迁移学习解决召回中的样本偏差](https://zhuanlan.zhihu.com/p/335626180)
+* [AutoDebias](https://arxiv.org/pdf/2105.04170v1.pdf)
+* [AutoDebias解读CSDN](https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/117308591)
+* [AutoDebias解读知乎](https://zhuanlan.zhihu.com/p/375980125)
 
 ## 转载声明
 
