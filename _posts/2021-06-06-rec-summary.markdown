@@ -41,6 +41,7 @@ tags:
 核心词
 1. **User特征**, **Item特征**, **Author特征**, **Context特征**, **Session特征** 
 2. **数值特征**, **类别特征**, **Embedding特征**
+> 如：多模态embedding, 点击相似embedding
 3. **贝叶斯平滑**, **威尔逊区间平滑**
 4. **KV记忆网络**
 5. **特征选择**
@@ -56,7 +57,9 @@ tags:
 5. **交叉熵**
 6. **Sampled Softmax**
 7. **Margin Hinge/BPR**
-8. **正则**
+8. **Negative Sampling for Softmax**
+> 如：YoutubeDNN Loss，Airbnb Listing Embedding中的Skip-gram Model Loss
+9. **正则**
 
 #### 多兴趣
 
@@ -78,7 +81,7 @@ tags:
 1. **Bandit策略**
 2. **User GCN Embedding**
 3. **多模态Embedding**
-4. **点击相似Type Embedding**
+4. **点击相似Type Embedding/Skip-gram Model**
 5. **贝叶斯平滑点击率**
 
 #### 在线深度学习
@@ -97,6 +100,7 @@ tags:
 2. **平均位置**
 3. **auc/gauc**
 4. **时效性**
+> example age, 增量训练, 缩短待预测内容池
 5. **多样性**
 
 
