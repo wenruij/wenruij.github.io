@@ -31,6 +31,7 @@ tags:
 * [AutoDebias](https://arxiv.org/pdf/2105.04170v1.pdf)
 * [AutoDebias解读CSDN](https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/117308591)
 * [AutoDebias解读知乎](https://zhuanlan.zhihu.com/p/375980125)
+* [负样本概率采样](https://tangshusen.me/Dive-into-DL-PyTorch/#/chapter10_natural-language-processing/10.3_word2vec-pytorch?id=_1032-%e8%b4%9f%e9%87%87%e6%a0%b7)
 
 ## 转载声明
 
