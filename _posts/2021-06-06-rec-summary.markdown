@@ -78,7 +78,7 @@ tags:
 1. **Bandit策略**
 2. **User GCN Embedding**
 3. **多模态Embedding**
-4. **点击相似Embedding**
+4. **点击相似Type Embedding**
 5. **贝叶斯平滑点击率**
 
 #### 在线深度学习
