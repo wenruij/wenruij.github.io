@@ -78,7 +78,7 @@ tags:
 #### 冷启动
 
 核心词
-1. **Bandit策略**
+1. **Bandit策略for用户冷启动**
 2. **User GCN Embedding**
 3. **多模态Embedding**
 4. **点击相似Type Embedding/Skip-gram Model**
