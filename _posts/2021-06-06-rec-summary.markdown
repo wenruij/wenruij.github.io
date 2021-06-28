@@ -55,11 +55,13 @@ tags:
 3. **Listwise**
 4. **极大似然**
 5. **交叉熵**
-6. **Sampled Softmax**
-7. **Margin Hinge/BPR**
-8. **Negative Sampling for Softmax**
+> 本质是对数损失函数
+6. **Margin Hinge/BPR**
+> BPR也是是对数损失函数
+7. **Sampled Softmax Loss**
+> 本质也是对数损失函数： argmin{-sum(log(softmax(user_emb*item_emb)))} for u2i models
 > 如：YoutubeDNN Loss，Airbnb Listing Embedding中的Skip-gram Model Loss
-9. **正则**
+8. **正则**
 
 #### 多兴趣
 
