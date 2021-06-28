@@ -114,6 +114,8 @@ i2i图的构建，图中存在一种结点即商品结点，两种边关系即�
 
 #### 辅助学习
 
+参考：[ESMM](https://arxiv.org/pdf/1804.07931v2.pdf)
+
 ## 参考资源
 
 * [Debiasing比赛冠军技术方案及在美团的实践](https://tech.meituan.com/2020/08/20/kdd-cup-debiasing-practice.html)
