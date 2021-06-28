@@ -110,6 +110,8 @@ i2i图的构建，图中存在一种结点即商品结点，两种边关系即�
 如下图所示：
 <img src="/img/sampling/ESAM_02.png" width="50%" height="50%" />
 
+参考：[ESAM](https://arxiv.org/pdf/2005.10545.pdf)
+
 #### 辅助学习
 
 ## 参考资源
