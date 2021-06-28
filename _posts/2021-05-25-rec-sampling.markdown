@@ -108,7 +108,7 @@ i2i图的构建，图中存在一种结点即商品结点，两种边关系即�
 3. 要求Ds的L维高阶特征的两两之间(h(s_j)和h(s_k))的协方差，与Dt的L维高阶特征的两两之间(h(d_j)和h(d_k))的协方差，两者之间的差值尽可能小
 
 如下图所示：
-<img src="/img/sampling/ESAM_02.png" width="80%" height="80%" />
+<img src="/img/sampling/ESAM_02.png" width="50%" height="50%" />
 
 #### 辅助学习
 
