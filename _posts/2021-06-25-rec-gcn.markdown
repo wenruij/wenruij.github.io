@@ -27,6 +27,7 @@ tags:
 观察SR-DNN，它能够比较方便的再TF上实现,是因为具备以下优势：
 1. 基于session建模，一个session就是一个子图，天然适合tf生成batch的方式
 2. SR-GNN借鉴Gated Graph Neural Network，利用GRU的门控信息来更新节点embedding,而不是采用谱图卷积算法，GRU在处理session这种序列时也具备天然优势
+> 第二步的具体做法为先利用 连接矩阵把节点的邻居给汇总起来成一个向量即H_neighbors(t)，然后利用GRU将H_neighbors(t)和H_vertex(t-1)融合成H_vertex(t)
 
 ## 参考资源
 
