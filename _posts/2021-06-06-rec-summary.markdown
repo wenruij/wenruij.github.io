@@ -79,12 +79,16 @@ tags:
 
 #### 冷启动
 
-核心词
+用户冷启动
 1. **Bandit策略for用户冷启动**
 2. **User GCN Embedding**
-3. **多模态Embedding**
-4. **点击相似Type Embedding/Skip-gram Model**
-5. **贝叶斯平滑点击率**
+3. **点击相似Type Embedding/Skip-gram Model**
+4. **贝叶斯平滑点击率**
+
+物品冷启动
+1. **多模态Embedding**
+2. **点击相似Type Embedding/Skip-gram Model**
+3. **贝叶斯平滑点击率**
 
 #### 在线深度学习
 

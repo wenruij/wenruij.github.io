@@ -1,0 +1,75 @@
+---
+layout:     post
+title:      "个性化推荐-综述"
+subtitle:   "Loss in Deep Recommendation"
+date:       2021-06-10
+author:     "Jiang Wenrui"
+header-img: "img/about-bg.jpg"
+tags:
+    - 深度学习
+    - 个性化推荐
+---
+
+## Pointwise
+常见的Pointwise:
+* 平方损失
+* 对数损失
+* binary crossentropy(输出层激活函数为sigmoid)
+* categorical crossentropy(输出层激活函数为softmax)
+
+其中交叉熵损失本质就是对数损失
+
+log对数损失是非常常见的损失函数，根据其前面有没有负号，其形态如下：
+
+<img src="/img/loss/log_loss.jpeg" width="80%" height="80%" />
+
+Pointwise损失函数可以参考：
+1. [常见的损失函数(loss function)总结](https://blog.csdn.net/qq_27590277/article/details/112130881)
+2. [binary/categorical crossentropy了解](https://blog.csdn.net/koreyoshichen/article/details/84823636)
+
+## Pairwise
+不同于排序经常使用Pointwise Loss，召回通常使用Pairwise Loss
+因为排序建模“排序的绝对准确性”，而召回建模“排序的相对准确性”
+
+常见的两种为：
+1. sampled softmax loss
+2. margin hinge loss
+具体参考 [用统一框架理解向量化召回](https://zhuanlan.zhihu.com/p/345378441)之Pairwise-loss：如何成对优化？
+
+## 极大似然与交叉熵
+极大似然估计是可以推导出交叉熵的
+二分类模型可认为符合二项分布，对于m次观察结果，写出似然函数，取对数似然，做推导即可得出binary cross entropy的形式
+
+> 参考[极大似然函数、最小二乘、交叉熵之间的联系](https://zhuanlan.zhihu.com/p/39775467)
+
+
+## 正则
+
+正则化（Regularization）是机器学习中一种常用的技术，其主要目的是控制模型复杂度，减小过拟合。最基本的正则化方法是在原目标（代价）函数 中添加惩罚项，对复杂度高的模型进行“惩罚”
+
+正则化是一种回归的形式，它将系数估计（coefficient estimate）朝零的方向进行约束、调整或缩小。也就是说，正则化可以在学习过程中降低模型复杂度和不稳定程度，从而避免过拟合的危险
+
+常见的惩罚项有：
+1. L1范式
+2. L2范式
+
+两种正则化的效果：
+1. L2正则化的效果是对原最优解的每个元素进行不同比例的放缩
+2. L1正则化则会使原最优解的元素产生不同量的偏移，并使某些元素为0，从而产生稀疏性
+3. L1解的不稳定性
+4. L1正则化使参数为零
+5. L2正则化使参数减小
+6. L2使得模型的解偏向于范数较小的W
+
+相关的一些参考：
+1. [莫烦](https://zhuanlan.zhihu.com/p/25707761)：图形化解释什么是 L1/L2 正则化和不稳定性
+2. [图形化深入理解L1、L2正则化和稀疏性](https://zhuanlan.zhihu.com/p/29360425)
+3. []()
+
+## 参考资源
+
+* []()
+
+## 转载声明
+
+首次发布于 [Jiang Wenrui](http://wenruij.github.io)，转载请保留以上链接

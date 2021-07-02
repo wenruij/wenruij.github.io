@@ -1,0 +1,38 @@
+---
+layout:     post
+title:      "个性化推荐-综述"
+subtitle:   "GCN in Deep Recommendation"
+date:       2021-06-25
+author:     "Jiang Wenrui"
+header-img: "img/about-bg.jpg"
+tags:
+    - 深度学习
+    - 个性化推荐
+---
+
+## SR-GNN
+
+相比于传统的GNN，SR-GNN在实现上具有以下优势
+
+建模方式
+> 1. 传统GNN: based on message passing
+> 2. TF建模: 静态图机制，考量是的tensor的transform
+
+静态图是指在图构建完成后，在模型运行时无法进行修改。这里的“图”即为模型的意思，一般一个图就是一个模型。这个图建好之后，运行前需要freeze，然后进行一些优化，例如图融合等，最后启动session根据之前构建的静态图进行计算，计算过程无法对静态图进行更改。
+
+生成Batch的方式：
+> 1. 传统GNN: 按照一定规则(importance sampling, layer-wise sampling)采样邻居节点，形成子图
+> 2. TF建模: 按行的样本
+
+观察SR-DNN，它能够比较方便的再TF上实现,是因为具备以下优势：
+1. 基于session建模，一个session就是一个子图，天然适合tf生成batch的方式
+2. SR-GNN借鉴Gated Graph Neural Network，利用GRU的门控信息来更新节点embedding,而不是采用谱图卷积算法，GRU在处理session这种序列时也具备天然优势
+
+## 参考资源
+
+* [图网络学习算法之——GGNN](https://zhuanlan.zhihu.com/p/83410937)
+* [Gated Graph Sequence Neural Networks阅读笔记](https://zhuanlan.zhihu.com/p/28170197)
+
+## 转载声明
+
+首次发布于 [Jiang Wenrui](http://wenruij.github.io)，转载请保留以上链接
