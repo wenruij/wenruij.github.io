@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "个性化推荐-综述"
+title:      "个性化推荐-多兴趣"
 subtitle:   "Multi-Interests in Deep Recommendation"
 date:       2021-06-18
 author:     "Jiang Wenrui"
