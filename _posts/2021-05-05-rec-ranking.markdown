@@ -76,14 +76,14 @@ Interaction Learning的主要手段是 FM 结构，本篇要介绍的FM主要包
 
 #### NFwFM
 NFwFM vs FwFM类似上述做法，首先是FwFM：
-1. 没有域的概念，所有特征需要先转成category类型，然后为所有特征分配全局唯一的global_id，然后去做embedding lookup查表
-2. 采用embedding_lookup，生成embedding后，维度是三维：[batch_size, num_feats, embedding_size]
-3. 调用bi_interaction公式对每两个特征做交叉,只是Feat_i 与 Feat_j做 交叉时多一个权重 r_ij
+1. 没有域的概念
+2. 基于FM
+3. FM基础上，Feat_i 与 Feat_j做 交叉时多一个权重 r_ij
 
 而NFwFM
 1. 引入域的概念，每一个域对应一个SparseTensor
 2. 每一个SparseTensor(域)经由tf.sparse_tensor_dense_matmul处理后得到一个DenseTensor，生成embedding后，维度是三维：[batch_size, num_fields, embedding_size]
-3. 调用bi_interaction公式对每两个域做交叉,只是Field_i 与 Field_j做 交叉时多一个权重 r_ij
+3. 遍历域对每两个域做交叉,只是Field_i 与 Field_j做 交叉时多一个权重 r_ij
 
 ## 参考资源
 
